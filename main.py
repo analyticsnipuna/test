@@ -291,8 +291,8 @@ if apply_btn and uploaded_file:
         user_prefix_prompt=user_prefix_prompt.replace("{", "{{").replace("}", "}}"),
         user_postfix_prompt=user_postfix_prompt.replace("{", "{{").replace("}", "}}"),
         user_column_guideline=(
-            user_column_guideline.replace("{", "{{").replace("}", "}}")
-            if user_column_guideline
+            st.session_state["user_column_guideline"].replace("{", "{{").replace("}", "}}")
+            if "user_column_guideline" in st.session_state and st.session_state["user_column_guideline"]
             else None
         ),
     )  # 에이전트 생성
