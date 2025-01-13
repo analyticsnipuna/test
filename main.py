@@ -288,8 +288,16 @@ if apply_btn and uploaded_file:
     st.session_state["agent"] = create_agent(
         loaded_data,
         selected_model,
-        user_prefix_prompt=user_prefix_prompt.replace("{", "{{").replace("}", "}}"),
-        user_postfix_prompt=user_postfix_prompt.replace("{", "{{").replace("}", "}}"),
+        user_prefix_prompt = (
+            user_prefix_prompt.replace("{", "{{").replace("}", "}}")
+            if user_prefix_prompt
+            else None
+        )
+        user_postfix_prompt = (
+            user_postfix_prompt.replace("{", "{{").replace("}", "}}")
+            if user_postfix_prompt
+            else None
+        )
         user_column_guideline=(
             st.session_state["user_column_guideline"].replace("{", "{{").replace("}", "}}")
             if "user_column_guideline" in st.session_state and st.session_state["user_column_guideline"]
