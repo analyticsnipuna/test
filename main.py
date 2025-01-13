@@ -288,8 +288,8 @@ if apply_btn and uploaded_file:
     st.session_state["agent"] = create_agent(
         loaded_data,
         selected_model,
-        # user_prefix_prompt=user_prefix_prompt.replace("{", "{{").replace("}", "}}"),
-        # user_postfix_prompt=user_postfix_prompt.replace("{", "{{").replace("}", "}}"),
+        user_prefix_prompt=user_prefix_prompt.replace("{", "{{").replace("}", "}}"),
+        user_postfix_prompt=user_postfix_prompt.replace("{", "{{").replace("}", "}}"),
         user_column_guideline=(
             user_column_guideline.replace("{", "{{").replace("}", "}}")
             if user_column_guideline
