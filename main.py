@@ -292,12 +292,12 @@ if apply_btn and uploaded_file:
             user_prefix_prompt.replace("{", "{{").replace("}", "}}")
             if user_prefix_prompt
             else None
-        )
+        ),
         user_postfix_prompt = (
             user_postfix_prompt.replace("{", "{{").replace("}", "}}")
             if user_postfix_prompt
             else None
-        )
+        ),
         user_column_guideline=(
             st.session_state["user_column_guideline"].replace("{", "{{").replace("}", "}}")
             if "user_column_guideline" in st.session_state and st.session_state["user_column_guideline"]
