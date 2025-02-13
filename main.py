@@ -23,17 +23,11 @@ elif current_os == "Darwin":  # macOS
     # Mac 환경 폰트 설정
     plt.rcParams["font.family"] = "AppleGothic"
 else:  # Linux 등 기타 OS
-    if "NanumGothic" in fm.findSystemFonts():
+    # 기본 한글 폰트 설정 시도
+    try:
         plt.rcParams["font.family"] = "NanumGothic"
-    else:
-        print("⚠️ NanumGothic 폰트를 찾을 수 없습니다. 시스템 기본 폰트 사용.")
-        plt.rcParams["font.family"] = "sans-serif"
-# else:  # Linux 등 기타 OS
-#     # 기본 한글 폰트 설정 시도
-#     try:
-#         plt.rcParams["font.family"] = "NanumGothic"
-#     except:
-#         print("한글 폰트를 찾을 수 없습니다. 시스템 기본 폰트를 사용합니다.")
+    except:
+        print("한글 폰트를 찾을 수 없습니다. 시스템 기본 폰트를 사용합니다.")
 
 ##### 마이너스 폰트 깨짐 방지 #####
 plt.rcParams["axes.unicode_minus"] = False  # 마이너스 폰트 깨짐 방지
