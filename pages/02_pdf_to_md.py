@@ -20,6 +20,11 @@ if "html_file_path" not in st.session_state:
 if "converted" not in st.session_state:
     st.session_state["converted"] = False  # 변환 여부 체크
 
+
+
+
+
+
 if uploaded_file:
     # 저장할 파일 경로 설정
     file_path = os.path.join(".cache/files", uploaded_file.name)
@@ -31,8 +36,9 @@ if uploaded_file:
     if not st.session_state["converted"]:
         with st.spinner("⏳ 변환 중... 잠시만 기다려 주세요."):
             # Jupyter Notebook 실행 (Python 변환된 코드 실행)
-            result = subprocess.run(["python", "../ocrmodules.py", file_path], capture_output=True, text=True)
-
+            ocr_script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "ocrmodules.py"))
+            # 변환 실행
+            result = subprocess.run(["python", ocr_script_path, file_path], capture_output=True, text=True)
 
             if result.returncode == 0:
                 st.success("✅ 변환 완료!")
