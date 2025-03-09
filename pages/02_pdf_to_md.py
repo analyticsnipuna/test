@@ -31,7 +31,8 @@ if uploaded_file:
     if not st.session_state["converted"]:
         with st.spinner("⏳ 변환 중... 잠시만 기다려 주세요."):
             # Jupyter Notebook 실행 (Python 변환된 코드 실행)
-            result = subprocess.run(["python", "02-Developing-Modules.py", file_path], capture_output=True, text=True)
+            result = subprocess.run(["python", "../ocrmodules.py", file_path], capture_output=True, text=True)
+
 
             if result.returncode == 0:
                 st.success("✅ 변환 완료!")
