@@ -1,20 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## 부탁 드립니다!
-# 
-# 본 자료는 패스트캠퍼스 RAG 비법노트 강의에서 유료 강의로 제공되는 자료입니다. 
-# 
-# 따라서, 제공된 코드를 사용하여 개발하는 것은 얼마든지 가능합니다만,
-# 
-# **제 3자 에게 무단배포, 웹에 소스코드 게재 및 배포는 금지**하고 있다는 점 부디 양해해 주시기 바랍니다.
-# 
-# 개발 및 학습 목적으로만 활용해 주세요. 많은 도움이 되었으면 좋겠습니다. 늘 감사드립니다.
-
-# ## 환경 설정
-# 
-
-# In[1]:
 
 
 from dotenv import load_dotenv
@@ -83,22 +69,8 @@ inputs = {
 stream_graph(upstage_parser_graph, inputs, config=config)
 
 
-# In[ ]:
 
-
-# 추출된 요소들을 확인합니다
-# elements = upstage_parser_graph.get_state(config).values["elements_from_parser"]
-# elements[-20:]
-
-
-# ## Export 처리 로직 구성
-# 
-# 이전 단계의 State 를 재사용하기 때문에 **모듈 단위로 이어서 개발하기가 용이**합니다.
-
-# In[6]:
-
-
-# 그래프 처리를 위한 필수 라이브러리들을 임포트합니다
+# 그래프 처리를 위한 필수 라이브러리들을 임포트
 from langgraph.graph import StateGraph, END
 from layoutparse.state import ParseState
 import layoutparse.export as export
@@ -218,12 +190,3 @@ inputs["elements_from_parser"][0]
 
 
 export_markdown(inputs)
-
-
-# ### CSV
-
-# In[ ]:
-
-
-# export_table_csv(inputs)
-
