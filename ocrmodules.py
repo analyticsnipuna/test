@@ -18,7 +18,7 @@ logging.langsmith("TeddyNote-Parser", set_enable=False)
 # Streamlit에서 전달된 PDF 파일 경로를 가져오기
 import sys
 if len(sys.argv) < 2:
-    print("❌ PDF 파일 경로가 제공되지 않았습니다. 실행 예시: python 01-Developing-Modules.py /path/to/pdf")
+    print("❌ PDF 파일 경로가 제공되지 않았습니다. 실행 예시: python ocrmoodules.py /path/to/pdf")
     sys.exit(1)
 
 pdf_file_path = sys.argv[1]  # Streamlit에서 전달된 PDF 경로
